@@ -1,0 +1,23 @@
+---
+title: "Month 9 PA - Stores Near Me"
+author: "carl"
+date: "September 13, 2018"
+output: html_document
+---
+
+```{r setup, include=T,echo=F,comment=""}
+knitr::opts_chunk$set(echo = TRUE)
+library(leaflet)
+#library(leafletR)
+library(htmltools)
+setwd("D:/coursera_jh_ds/Month9")
+```
+
+```{r mapstuff, echo=F}
+chdata <- read.csv("D:/coursera_jh_ds/Month9/ChandlerGroceryStores.csv",sep=",") 
+my_map <-  leaflet() %>% addTiles() %>% 
+    addMarkers(lat=chdata$lat,lng=chdata$lng, popup=htmlEscape(chdata$Name))
+my_map
+
+```
+
